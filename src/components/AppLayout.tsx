@@ -79,7 +79,7 @@ export const AppLayout: React.FC = () => {
           </p>
           <div className="flex justify-center space-x-4">
             <a
-              href="http://localhost:8000" // replace with your live demo URL
+              href="https://scalable-docker-logging.vercel.app/" 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 animate-bounce"
@@ -87,7 +87,7 @@ export const AppLayout: React.FC = () => {
               Live Demo →
             </a>
             <a
-              href="https://github.com/hesbonangwenyi606/scalable-docker-logging#readme" // replace with your docs URL
+              href="https://github.com/hesbonangwenyi606/scalable-docker-logging#readme" 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 animate-bounce"
