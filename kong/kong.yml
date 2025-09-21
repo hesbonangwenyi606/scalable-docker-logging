@@ -1,0 +1,30 @@
+_format_version: "2.1"
+
+services:
+  - name: user-service
+    url: http://user-service:3001
+    routes:
+      - name: user-route
+        paths:
+          - /users
+
+  - name: auth-service
+    url: http://auth-service:3002
+    routes:
+      - name: auth-route
+        paths:
+          - /auth
+
+  - name: payment-service
+    url: http://payment-service:3003
+    routes:
+      - name: payment-route
+        paths:
+          - /payments
+
+plugins:
+  - name: rate-limiting
+    service: user-service
+    config:
+      minute: 100
+      policy: local

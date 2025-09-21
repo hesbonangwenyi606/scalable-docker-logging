@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: demo_mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  user-service:
+    build:
+      context: ./services/user
+    container_name: user_service
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/demo
+      - PORT=3001
+    depends_on:
+      - mongo
+    ports:
+      - "3001:3001"
+
+  auth-service:
+    build:
+      context: ./services/auth
+    container_name: auth_service
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/demo
+      - PORT=3002
+    depends_on:
+      - mongo
+    ports:
+      - "3002:3002"
+
+  payment-service:
+    build:
+      context: ./services/payment
+    container_name: payment_service
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/demo
+      - PORT=3003
+    depends_on:
+      - mongo
+    ports:
+      - "3003:3003"
+
+  kong:
+    image: kong:3.4
+    container_name: kong_gateway
+    restart: unless-stopped
+    depends_on:
+      - user-service
+      - auth-service
+      - payment-service
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yml
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001"
+    volumes:
+      - ./kong/kong.yml:/etc/kong/kong.yml
+    ports:
+      - "8000:8000"   # Public Proxy
+      - "8001:8001"   # Admin API
+
+volumes:
+  mongo-data:
