@@ -14,11 +14,7 @@ export const AppLayout: React.FC = () => {
     'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460830817_22bdfa86.webp',
     'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460832538_41407506.webp',
     'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460834340_6378e8f5.webp',
-    'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460836094_f21d6f37.webp',
-    'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460837827_76846b91.webp',
-    'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460839529_8db3d4e5.webp',
-    'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460841292_2ba7a40d.webp',
-    'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460843261_a52de61a.webp'
+    'https://d64gsuwffb70l.cloudfront.net/68cffb74c460bb74e2ec4f5e_1758460836094_f21d6f37.webp'
   ];
 
   const containerImages = [
@@ -82,12 +78,22 @@ export const AppLayout: React.FC = () => {
             Built with Node.js, Docker, Kong, MongoDB, and ELK Stack.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors">
+            <a
+              href="http://localhost:8000" // replace with your live demo URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 animate-bounce"
+            >
               Live Demo →
-            </button>
-            <button className="border border-gray-600 hover:border-gray-500 px-8 py-3 rounded-lg font-semibold transition-colors">
+            </a>
+            <a
+              href="https://github.com/hesbonangwenyi606/scalable-docker-logging#readme" // replace with your docs URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 animate-bounce"
+            >
               View Documentation
-            </button>
+            </a>
           </div>
         </div>
       </div>
