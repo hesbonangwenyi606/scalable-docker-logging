@@ -27,7 +27,7 @@ A scalable microservices architecture platform with API Gateway, service discove
 
 ## Demo
 
-- **Live Demo:** [Click here](http://localhost:8000) *(replace with hosted URL for production)*
+- **Live Demo:** [Click here](scalable-docker-logging.vercel.app) *(replace with hosted URL for production)*
 - **Documentation:** [Click here](https://github.com/hesbonangwenyi606/scalable-docker-logging#readme)
 
 ---
